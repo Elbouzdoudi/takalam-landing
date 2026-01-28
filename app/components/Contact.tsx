@@ -108,20 +108,20 @@ export default function Contact() {
       };
 
       // ...existing code...
-        formDataToSend.append('Phone', formData.phone);
-        formDataToSend.append('Email', formData.email);
-        formDataToSend.append('Age', formData.age);
-        formDataToSend.append('Sex', formData.sex);
-        formDataToSend.append('Country', formData.country);
-        formDataToSend.append('City', formData.city);
-        formDataToSend.append('Package Selected', dataToSend.package);
-        formDataToSend.append('Message', formData.message || 'No additional message');
-        formDataToSend.append('Submitted At', new Date().toLocaleString());
-        formDataToSend.append('Payment Status', 'Awaiting screenshot via WhatsApp');
+        dataToSend.append('Phone', formData.phone);
+        dataToSend.append('Email', formData.email);
+        dataToSend.append('Age', formData.age);
+        dataToSend.append('Sex', formData.sex);
+        dataToSend.append('Country', formData.country);
+        dataToSend.append('City', formData.city);
+        dataToSend.append('Package Selected', dataToSend.package);
+        dataToSend.append('Message', formData.message || 'No additional message');
+        dataToSend.append('Submitted At', new Date().toLocaleString());
+        dataToSend.append('Payment Status', 'Awaiting screenshot via WhatsApp');
 
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: formDataToSend
+          body: dataToSend
         });
 
         const result = await response.json();
